@@ -24,6 +24,8 @@ var Engine = (function(global) {
         canvas = doc.createElement('canvas'),
         ctx = canvas.getContext('2d'),
         lastTime;
+        
+        
 
     canvas.width = 505;
     canvas.height = 606;
@@ -80,7 +82,8 @@ var Engine = (function(global) {
      */
     function update(dt) {
         updateEntities(dt);
-        // checkCollisions();
+        
+        //checkCollisions();
     }
 
     /* This is called by the update function and loops through all of the
@@ -94,6 +97,14 @@ var Engine = (function(global) {
         allEnemies.forEach(function(enemy) {
             enemy.update(dt);
         });
+        //var updateScore = function{
+            
+            ctx.fillStyle = "white";
+            ctx.fillRect(0, 0, 606, 60);
+            ctx.font = "30px Arial";
+            ctx.fillStyle = "#0095DD";
+            ctx.fillText("Score: " + score, 0, 40);
+       // }
        //player.update();
     }
 
@@ -137,6 +148,8 @@ var Engine = (function(global) {
         }
 
         renderEntities();
+
+        
     }
 
     /* This function is called by the render function and is called on each game
@@ -150,6 +163,8 @@ var Engine = (function(global) {
         allEnemies.forEach(function(enemy) {
             enemy.render();
         });
+        
+        jewel.render();
 
         player.render();
     }
@@ -171,7 +186,10 @@ var Engine = (function(global) {
         'images/water-block.png',
         'images/grass-block.png',
         'images/enemy-bug.png',
-        'images/char-boy.png'
+        'images/char-boy.png',
+        'images/gem-blue.png',
+        'images/gem-green.png',
+        'images/gem-orange.png',
     ]);
     Resources.onReady(init);
 
@@ -179,5 +197,5 @@ var Engine = (function(global) {
      * object when run in a browser) so that developers can use it more easily
      * from within their app.js files.
      */
-    global.ctx = ctx;
+         global.ctx = ctx;
 })(this);

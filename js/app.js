@@ -30,7 +30,10 @@ Enemy.prototype.update = function(dt) {
     if  (player.x < this.x + 60 && player.x + 60 > this.x && player.y < this.y + 50 && 50 + player.y > this.y) {
         alert('Seems you just got bitten by a bug!');
         resetPlayer();
+        randomJewel();
+        score = 0;
     }
+
 
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
@@ -44,7 +47,23 @@ Enemy.prototype.render = function() {
 
 };
 
+var Jewel = function(x, y, sprite, value) {
+    this.x = x;
+    this.y = y;
+    this.sprite = sprite;
+    this.value = value;
+};
 
+Jewel.prototype.update = function() { 
+    //Collision detections
+    
+
+};
+
+Jewel.prototype.render = function() {
+
+    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+};
 
 // Now write your own player class
 // This class requires an update(), render() and
@@ -54,6 +73,7 @@ var Player = function(x, y) {
     this.x = x;
     this.y = y;
     this.sprite = 'images/char-boy.png';
+    this.value = 0;
 
 
 };
@@ -61,7 +81,18 @@ var Player = function(x, y) {
 Player.prototype.render = function() {
 
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+
+    if  (jewel.x < this.x + 60 && jewel.x + 60 > this.x && jewel.y < this.y + 50 && 50 + jewel.y > this.y) {
+        //alert('increase points by ' + jewel.value);
+        jewel = new Jewel(-100, -100, 'images/gem-orange.png', 20);
+        //drawScore(jewel.value);
+        score = score + jewel.value;
+
+    };
+
 };
+
+
 
 
 
@@ -72,12 +103,14 @@ Player.prototype.handleInput = function(direction) {
     if (direction === 'left') {
         if (this.x > 0 ){
             this.x -= 102;
+
         }
 
     }
     //up direction
     if (direction === 'up') {
             this.y -= 82;
+            score = score + 1;
     }
     //right direction with boundary
     if (direction === 'right'){
@@ -89,15 +122,20 @@ Player.prototype.handleInput = function(direction) {
     if (direction === 'down') {
         if (this.y < 400 ){
             this.y += 82;
+            score = score - 1;
         }
     }
     //if player reaches top border/water has won
     if (this.y <= 0){
         resetPlayer();
         alert('Good Job you are a Winner!');
+        randomJewel();
+        score = score + 50;
+        
     }
 };
 
+// Creating new Jewel object
 
 
 // Now instantiate your objects.
@@ -123,6 +161,37 @@ var resetPlayer = function () {
     // allEnemies[i].x = -1 * (Math.random() * (800 - 200) + 200);
     //}
 };
+
+var randomJewel = function(){
+    var xArray = [0, 102, 202, 302, 404];
+    var yArray = [50, 134, 218];
+    var sprArray = ['images/gem-blue.png', 'images/gem-green.png', 'images/gem-orange.png',]
+    //Randomly put jewel on top of rocks
+    jewel.x = xArray[Math.floor(Math.random() * xArray.length)];
+    jewel.y = yArray[Math.floor(Math.random() * yArray.length)];
+    jewel.sprite = sprArray[Math.floor(Math.random() * sprArray.length)];
+};
+
+var allJewels = [];
+var xArray = [0, 102, 202, 302, 404];
+var yArray = [50, 134, 218];
+//Randomly put jewel on top of rocks
+var xJewel = xArray[Math.floor(Math.random() * xArray.length)];
+var yJewel = yArray[Math.floor(Math.random() * yArray.length)];
+var jewel1 = new Jewel(xJewel, yJewel, 'images/gem-blue.png', 5);
+var jewel2 = new Jewel(xJewel, yJewel, 'images/gem-green.png', 10);
+var jewel3 = new Jewel(xJewel, yJewel, 'images/gem-orange.png', 20);
+allJewels.push(jewel1, jewel2, jewel3);
+var jewel = allJewels[Math.floor(Math.random() * allJewels.length)];
+var score = 0;
+            
+/*function drawScore(value) {
+            
+            ctx.fillStyle = "white";
+            ctx.fillRect(0, 40, 606, 20);
+        }
+drawScore(jewel.value);*/
+
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
