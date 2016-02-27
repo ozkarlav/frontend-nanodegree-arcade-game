@@ -30,11 +30,13 @@ var Engine = (function(global) {
     canvas.width = 505;
     canvas.height = 606;
     doc.body.appendChild(canvas);
+    
 
     /* This function serves as the kickoff point for the game loop itself
      * and handles properly calling the update and render methods.
      */
     function main() {
+
         /* Get our time delta information which is required if your game
          * requires smooth animation. Because everyone's computer processes
          * instructions at different speeds we need a constant value that
@@ -59,6 +61,7 @@ var Engine = (function(global) {
          * function again as soon as the browser is able to draw another frame.
          */
         win.requestAnimationFrame(main);
+
     }
 
     /* This function does some initial setup that should only occur once,
@@ -96,16 +99,11 @@ var Engine = (function(global) {
     function updateEntities(dt) {
         allEnemies.forEach(function(enemy) {
             enemy.update(dt);
-        });
-        //var updateScore = function{
-            
-            ctx.fillStyle = "white";
-            ctx.fillRect(0, 0, 606, 60);
-            ctx.font = "30px Arial";
-            ctx.fillStyle = "#0095DD";
-            ctx.fillText("Score: " + score, 0, 40);
+        });    
+           
        // }
-       //player.update();
+       //update player for the collision detection to work.
+       player.update();
     }
 
     /* This function initially draws the "game level", it will then call
@@ -144,6 +142,14 @@ var Engine = (function(global) {
                  * we're using them over and over.
                  */
                 ctx.drawImage(Resources.get(rowImages[row]), col * 101, row * 83);
+
+                //this will draw the score on top of the canvas.
+                //redrawing a white rectangle to hide the previous score
+                ctx.fillStyle = "white";
+                ctx.fillRect(0, 0, 606, 60);
+                ctx.font = "30px Arial";
+                ctx.fillStyle = "#0095DD";
+                ctx.fillText("Score: " + score, 0, 40);
             }
         }
 
@@ -187,6 +193,7 @@ var Engine = (function(global) {
         'images/grass-block.png',
         'images/enemy-bug.png',
         'images/char-boy.png',
+        //Jewels resources
         'images/gem-blue.png',
         'images/gem-green.png',
         'images/gem-orange.png',
@@ -198,4 +205,5 @@ var Engine = (function(global) {
      * from within their app.js files.
      */
          global.ctx = ctx;
+
 })(this);
