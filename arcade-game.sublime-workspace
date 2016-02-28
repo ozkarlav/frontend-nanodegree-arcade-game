@@ -1,0 +1,468 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"random",
+				"randomJewel"
+			],
+			[
+				"ran",
+				"randomJewel"
+			],
+			[
+				"va",
+				"value"
+			],
+			[
+				"all",
+				"allJewels"
+			],
+			[
+				"ALL",
+				"allEnemies"
+			],
+			[
+				"enemy",
+				"enemyY"
+			],
+			[
+				"ene",
+				"enemyX"
+			],
+			[
+				"player",
+				"playerH"
+			],
+			[
+				"pla",
+				"playerW"
+			],
+			[
+				"d",
+				"down"
+			],
+			[
+				"h",
+				"handleInput"
+			],
+			[
+				"proto",
+				"prototype"
+			],
+			[
+				"e",
+				"else"
+			],
+			[
+				"wi",
+				"width"
+			],
+			[
+				"ea",
+				"each"
+			],
+			[
+				"he",
+				"head	Tag"
+			],
+			[
+				"split",
+				"splitName"
+			],
+			[
+				"s",
+				"src"
+			],
+			[
+				"margin",
+				"margin-top"
+			],
+			[
+				"MAR",
+				"margin-top"
+			],
+			[
+				"border-c",
+				"border-color"
+			],
+			[
+				"ma",
+				"margin"
+			],
+			[
+				"proj",
+				"projct"
+			],
+			[
+				"formatedP",
+				"formattedProjectTitle"
+			],
+			[
+				"name",
+				"nameArray"
+			],
+			[
+				"in",
+				"inName"
+			],
+			[
+				"log",
+				"logClicks"
+			],
+			[
+				"for",
+				"formatedContact"
+			],
+			[
+				"fun",
+				"funThoughts"
+			],
+			[
+				"head",
+				"header	Tag"
+			],
+			[
+				"st",
+				"font-style"
+			],
+			[
+				"bac",
+				"background-color"
+			],
+			[
+				"colo",
+				"background-color"
+			],
+			[
+				"max",
+				"max-height"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "js/app.js",
+			"settings":
+			{
+				"buffer_size": 5796,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "index.html",
+			"settings":
+			{
+				"buffer_size": 309,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "js/resources.js",
+			"settings":
+			{
+				"buffer_size": 3887,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "js/engine.js",
+			"settings":
+			{
+				"buffer_size": 8077,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 287.0,
+		"selected_items":
+		[
+		],
+		"width": 467.0
+	},
+	"console":
+	{
+		"height": 139.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Applications/XAMPP/xamppfiles/htdocs/HTML5-Canvas/index.html",
+		"/Users/oscarlaverde/Desktop/function.js",
+		"/Users/oscarlaverde/version-control/frontend-nanodegree-resume/create-your-own-adventure/espanol/guerra/duracion.md",
+		"/Users/oscarlaverde/version-control/frontend-nanodegree-resume/create-your-own-adventure/espanol/soldados/soldados.md",
+		"/Users/oscarlaverde/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/Users/oscarlaverde/version-control/frontend-nanodegree-resume/css/simple-line-icons.css",
+		"/Users/oscarlaverde/version-control/frontend-nanodegree-resume/css/style.css",
+		"/Users/oscarlaverde/version-control/frontend-nanodegree-resume/js/helper.js",
+		"/Users/oscarlaverde/version-control/frontend-nanodegree-resume/js/resumeBuilder.js",
+		"/Users/oscarlaverde/version-control/frontend-nanodegree-resume/index.html",
+		"/Users/oscarlaverde/version-control/reflections/.git/COMMIT_EDITMSG",
+		"/Users/oscarlaverde/version-control/recipes/sancocho.txt",
+		"/Users/oscarlaverde/version-control/pappu-pakia/js/pappu.js",
+		"/Users/oscarlaverde/version-control/pappu-pakia/js/utils.js",
+		"/Users/oscarlaverde/version-control/reflections/lesson_1_reflections.txt",
+		"/Users/oscarlaverde/Copy/Learning/Udacity/Projects/01 - Portfolio/index.html",
+		"/Users/oscarlaverde/Copy/Learning/Udacity/Projects/01 - Portfolio/css/style.css",
+		"/Users/oscarlaverde/Copy/Learning/Udacity/Front-End Web Developer Nanodegree/02 - Intro to HTML and CSS/toplist/style.css",
+		"/Users/oscarlaverde/Copy/Learning/Udacity/Front-End Web Developer Nanodegree/02 - About Me/FE Nanodegree Project 0/styles.css",
+		"/Users/oscarlaverde/Copy/Learning/Udacity/Front-End Web Developer Nanodegree/02 - About Me/FE Nanodegree Project 0/index.html"
+	],
+	"find":
+	{
+		"height": 38.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"draw",
+			"reset",
+			"x",
+			"speed",
+			"player",
+			"hasOwnProperty",
+			"\"",
+			"\"\n",
+			"\">\n",
+			"oran",
+			"grey",
+			"}\n",
+			"{\n",
+			"skills",
+			"}\n",
+			"top",
+			"class",
+			"5",
+			"#f3f3f3",
+			"#f5ae23",
+			"#f5a623",
+			"font",
+			"fonts",
+			"oscar",
+			"display",
+			"nameArray",
+			"coin",
+			"ship",
+			"coin",
+			"coins",
+			"bulle",
+			"bull",
+			".delayBeforeBullet ",
+			"clone",
+			"images/"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"'",
+			"http://www.oscarlab.ca/images/"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 3,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "js/app.js",
+					"settings":
+					{
+						"buffer_size": 5796,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4739,
+								4739
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1680.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "index.html",
+					"settings":
+					{
+						"buffer_size": 309,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								15,
+								15
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "js/resources.js",
+					"settings":
+					{
+						"buffer_size": 3887,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1189,
+								1189
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "js/engine.js",
+					"settings":
+					{
+						"buffer_size": 8077,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6267,
+								6267
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1942.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true
+}

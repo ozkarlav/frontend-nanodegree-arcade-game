@@ -29,8 +29,15 @@ Enemy.prototype.update = function(dt) {
         alert('Seems you just got bitten by a bug!');
         resetPlayer();
         randomJewel();
-        jewel = allJewels[Math.floor(Math.random() * allJewels.length)];
-        score = 0;
+        heart = randomHeart();
+        //this action handles the lives after Enemy has collision with player
+        if (lives === 0){
+            score = 0;
+            lives = 3;
+            alert('GAME OVER');
+        }else{
+            lives = lives - 1;
+        };
     }
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
@@ -56,6 +63,21 @@ Jewel.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
+//*******HEARTS AND POISON BOTTLE********
+//Hearts give you lives when you catch them 
+
+var Heart = function(x, y, sprite, name) {
+    this.x = x;
+    this.y = y;
+    this.sprite = sprite;
+    this.name = name;
+};
+
+//Draw heart on the screen.
+Heart.prototype.render = function() {
+    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+};
+
 //******PLAYER*******
 // Now write your own player class
 // This class requires an update(), render() and
@@ -78,42 +100,53 @@ Player.prototype.update = function (){
         //Adding Jewel value to the total of the score.
         score = score + jewel.value;
     };
+    if  (heart.x < this.x + 60 && heart.x + 60 > this.x && heart.y < this.y + 50 && 50 + heart.y > this.y) {
+        //Relocating heart outside canvas after collision detected
+        
+        //if is heart it will add 1 live, if poison bottle it will take 1 live from player
+        if (heart.name === "live"){
+            lives = lives + 1;
+        }if (heart.name === "dead"){
+            resetPlayer();
+            if (lives === 0){
+                score = 0;
+                lives = 3;
+            alert('GAME OVER');
+        }else{
+            lives = lives - 1;
+            }
+        }
+        heart = new Heart(-100, -100, 'images/Heart.png');
+    };
 };
 
 //Handeling the events of the arrow keys.
 Player.prototype.handleInput = function(direction) {
     //left direction with boundary
-    if (direction === 'left') {
-        if (this.x > 0 ){
+    if (direction === 'left' && this.x > 0) {
             this.x -= 102;
-        }
     }
     //up direction, score update, boundary, and action when Player reaches  water.
     if (direction === 'up') {
             this.y -= 82;
-            score = score + 1;
-        if (this.y <= 0){
-        resetPlayer();
-        alert('Good Job you are a Winner!');
-        randomJewel();
-        //After creating new Jewels with random coordinates, 
-        //this will select a random jewel from allJewels array
-        jewel = allJewels[Math.floor(Math.random() * allJewels.length)];
-        score = score + 50;        
-        };
+            score = score + 2;
     }
     //right direction with boundary
-    if (direction === 'right'){
-        if (this.x < 350  ){
-            this.x += 102;
+    if (direction === 'right' && this.x < 350 ){
+        this.x += 102;
         }
-    }
     //right direction with boundary and score update
-    if (direction === 'down') {
-        if (this.y < 400 ){
-            this.y += 82;
-            score = score - 1;
-        }
+    if (direction === 'down' && this.y < 400) {
+        score = score - 1;
+    }
+    if (this.y <= 0){
+        resetPlayer();
+        //Sets random heart after player reaches the top
+        heart = randomHeart();
+        //After creating new Jewels with random coordinates, 
+        //this will select a random jewel from allJewels array
+        jewel = randomJewel();
+        score = score + 50;        
     }
 };
 
@@ -152,15 +185,33 @@ var randomJewel = function(){
     var jewel2 = new Jewel(xJewel, yJewel, 'images/gem-green.png', 10);
     var jewel3 = new Jewel(xJewel, yJewel, 'images/gem-orange.png', 20);
     allJewels.push(jewel1, jewel2, jewel3);
+    jewel = allJewels[Math.floor(Math.random() * allJewels.length)];
+    return jewel;
 };
-
 //Randomly put jewel on canvas
-randomJewel();
-jewel = allJewels[Math.floor(Math.random() * allJewels.length)];
+jewel = randomJewel();
 
-//Score variable staarts at 0.
+//This will create a heart object with a random location 
+//every time this function gets called.
+var randomHeart = function(){
+    allhearts = [];
+    var xArray = [0, 102, 202, 302, 404];
+    var yArray = [74, 158, 242];
+    var xHeart = xArray[Math.floor(Math.random() * xArray.length)];
+    var yHeart = yArray[Math.floor(Math.random() * yArray.length)];
+    var heart1 = new Heart(xHeart, yHeart, 'images/Heart.png', 'live');
+    var heart2 = new Heart(xHeart, yHeart, 'images/poison_bottle.png', 'dead');
+    allhearts.push(heart1, heart2);
+    heart = allhearts[Math.floor(Math.random() * allhearts.length)];
+    return heart;
+};
+//random heart on canvas
+heart = randomHeart();
+
+//score and lives variables at start of the game
+var lives = 3;
 var score = 0;
-        
+
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
 document.addEventListener('keyup', function(e) {

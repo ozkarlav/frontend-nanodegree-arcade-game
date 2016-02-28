@@ -30,6 +30,7 @@ var Engine = (function(global) {
     canvas.width = 505;
     canvas.height = 606;
     doc.body.appendChild(canvas);
+
     
 
     /* This function serves as the kickoff point for the game loop itself
@@ -103,7 +104,8 @@ var Engine = (function(global) {
            
        // }
        //update player for the collision detection to work.
-       player.update();
+        player.update();
+
     }
 
     /* This function initially draws the "game level", it will then call
@@ -150,6 +152,10 @@ var Engine = (function(global) {
                 ctx.font = "30px Arial";
                 ctx.fillStyle = "#0095DD";
                 ctx.fillText("Score: " + score, 0, 40);
+                //this will draw the score on top of the canvas.
+                //redrawing a white rectangle to hide the previous score
+                ctx.fillText("Lives: " + lives, 380, 40);
+                
             }
         }
 
@@ -171,7 +177,7 @@ var Engine = (function(global) {
         });
         
         jewel.render();
-
+        heart.render();
         player.render();
     }
 
@@ -193,10 +199,13 @@ var Engine = (function(global) {
         'images/grass-block.png',
         'images/enemy-bug.png',
         'images/char-boy.png',
-        //Jewels resources
+        //Jewels images
         'images/gem-blue.png',
         'images/gem-green.png',
         'images/gem-orange.png',
+        //Heart image
+        'images/Heart.png',
+        'images/poison_bottle.png',
     ]);
     Resources.onReady(init);
 
