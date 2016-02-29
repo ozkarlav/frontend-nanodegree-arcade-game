@@ -29,7 +29,7 @@ Enemy.prototype.update = function(dt) {
     if  (player.x < this.x + 60 && player.x + 60 > this.x && player.y < this.y + 50 && 50 + player.y > this.y) {
         alert('Seems you just got bitten by a bug!');
         player.resetPlayer();
-        randomJewel();
+        jewel = randomJewel();
         heart = randomHeart();
         //this action handles the lives after Enemy has collision with player
         if (lives === 0){
