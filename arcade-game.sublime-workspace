@@ -307,8 +307,8 @@
 						"selection":
 						[
 							[
-								4186,
-								4186
+								0,
+								7676
 							]
 						],
 						"settings":
@@ -317,8 +317,8 @@
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
-						"translation.x": 9.0,
-						"translation.y": 2494.0,
+						"translation.x": 0.0,
+						"translation.y": 171.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"

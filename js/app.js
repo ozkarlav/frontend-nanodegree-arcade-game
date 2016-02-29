@@ -1,3 +1,4 @@
+'use strict';
 // Enemies our player must avoid
 var Enemy = function(y) {
     // Variables applied to each of our instances go here,
@@ -27,7 +28,7 @@ Enemy.prototype.update = function(dt) {
     //creates a new random jeweland reset the score back to 0.
     if  (player.x < this.x + 60 && player.x + 60 > this.x && player.y < this.y + 50 && 50 + player.y > this.y) {
         alert('Seems you just got bitten by a bug!');
-        resetPlayer();
+        player.resetPlayer();
         randomJewel();
         heart = randomHeart();
         //this action handles the lives after Enemy has collision with player
@@ -108,7 +109,7 @@ Player.prototype.update = function (){
             lives = lives + 1;
             heart = new Heart(-100, -100, 'images/Heart.png', 1);
         }if (heart.name === "dead"){
-            resetPlayer();
+            this.resetPlayer();
             jewel = randomJewel();
             heart = randomHeart();
             if (lives === 0){
@@ -122,6 +123,8 @@ Player.prototype.update = function (){
         
     }
 };
+
+
 
 //Handeling the events of the arrow keys.
 Player.prototype.handleInput = function(direction) {
@@ -140,10 +143,11 @@ Player.prototype.handleInput = function(direction) {
         }
     //right direction with boundary and score update
     if (direction === 'down' && this.y < 400) {
+        this.y += 82;
         score = score - 1;
     }
     if (this.y <= 0){
-        resetPlayer();
+        this.resetPlayer();
         //Sets random heart after player reaches the top
         heart = randomHeart();
         //After creating new Jewels with random coordinates, 
@@ -151,6 +155,13 @@ Player.prototype.handleInput = function(direction) {
         jewel = randomJewel();
         score = score + 50;        
     }
+};
+
+//This function resets the player to its starting location.
+
+Player.prototype.resetPlayer = function () {
+    this.x = 200;
+    this.y = 400;
 };
 
 // Now instantiate your objects.
@@ -169,17 +180,11 @@ allEnemies.push(enemy1, enemy2, enemy3);
 //Player variable with starting coordinates
 var player = new Player(200, 400);
 
-//This function resets the player to its starting location.
-var resetPlayer = function () {
-    player.x = 200;
-    player.y = 400;
-};
-
 // this will create a new empty allJewels array, 
 // will create new jewels and  give random location to each
 // and then push them into the allJewels array
 var randomJewel = function(){
-    allJewels = [];
+    var allJewels = [];
     var xArray = [0, 102, 202, 302, 404];
     var yArray = [50, 134, 218];
     var xJewel = xArray[Math.floor(Math.random() * xArray.length)];
@@ -188,16 +193,16 @@ var randomJewel = function(){
     var jewel2 = new Jewel(xJewel, yJewel, 'images/gem-green.png', 10);
     var jewel3 = new Jewel(xJewel, yJewel, 'images/gem-orange.png', 20);
     allJewels.push(jewel1, jewel2, jewel3);
-    jewel = allJewels[Math.floor(Math.random() * allJewels.length)];
+    var jewel = allJewels[Math.floor(Math.random() * allJewels.length)];
     return jewel;
 };
 //Randomly put jewel on canvas
-jewel = randomJewel();
+var jewel = randomJewel();
 
 //This will create a heart object with a random location 
 //every time this function gets called.
 var randomHeart = function(){
-    allhearts = [];
+    var allhearts = [];
     var xArray = [0, 102, 202, 302, 404];
     var yArray = [74, 158, 242];
     var xHeart = xArray[Math.floor(Math.random() * xArray.length)];
@@ -205,11 +210,11 @@ var randomHeart = function(){
     var heart1 = new Heart(xHeart, yHeart, 'images/Heart.png', 'live');
     var heart2 = new Heart(xHeart, yHeart, 'images/poison_bottle.png', 'dead');
     allhearts.push(heart1, heart2);
-    heart = allhearts[Math.floor(Math.random() * allhearts.length)];
+    var heart = allhearts[Math.floor(Math.random() * allhearts.length)];
     return heart;
 };
 //random heart on canvas
-heart = randomHeart();
+var heart = randomHeart();
 
 //score and lives variables at start of the game
 var lives = 3;
