@@ -2,7 +2,7 @@
 
 *****
 
-A clone of the classic arcade game Froger, created in JavaScript and rendered in HTML '<canvas>'
+A clone of the classic arcade game Froger, created in JavaScript and rendered in HTML <cavas>
 
 ##Quick Start
 
