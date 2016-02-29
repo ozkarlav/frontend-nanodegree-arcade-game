@@ -38,6 +38,4 @@ Using Object-Oriented JavaScript 'app.js' initiates the Enemies, Player, Hearts,
 **Licensing
 The content of this repository is free tu use under [Creative Commons Attribution License](http://creativecommons.org/licenses/by/3.0/us/).
 
-**Credits
-Udacity
 
