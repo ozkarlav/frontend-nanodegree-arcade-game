@@ -10,19 +10,19 @@ Clone this repository and open index.html on your browser.
 
 ##Items
 
-*Player
-*Bugs - Bugs (Enemies) will run from left to right on the screen bricks at random speeds. Every time a bug reaches the far right of the screen it will start all over from the right of the screen at a neww speed. Getting hit by a bug will result in the reset of the game and all the ponts in your Score will be lost.
-*Jewels - Jewels appear randomly on the screen bricks every time the game starts. They have different values depending of their colour. If player catches them, the value of the jewel will be added to the score.
-*Hearts - Hearts will give you an extra live every time you catch one.
-*Poison Bottles - If you catch one of this, a live will be taken from your live count.
++ Playe
++ *Bugs - Bugs (Enemies) will run from left to right on the screen bricks at random speeds. Every time a bug reaches the far right of the screen it will start all over from the right of the screen at a neww speed. Getting hit by a bug will result in the reset of the game and all the ponts in your Score will be lost.
++ Jewels - Jewels appear randomly on the screen bricks every time the game starts. They have different values depending of their colour. If player catches them, the value of the jewel will be added to the score.
++ Hearts - Hearts will give you an extra live every time you catch one.
++ Poison Bottles - If you catch one of this, a live will be taken from your live count.
 
 ##Score
 
-*Going up:arrow_up: = 2 point.
-*Going up:arrow_down: = -1 point.
-*Green Jewe = 5 points.
-*Blue Jewel = 10 points.
-*Orange Jewel = 20 points.
++ Going up:arrow_up: = 2 point.
++ Going up:arrow_down: = -1 point.
++ Green Jewe = 5 points.
++ Blue Jewel = 10 points.
++ Orange Jewel = 20 points.
 
 ##How to Play
 
