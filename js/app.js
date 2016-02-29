@@ -22,7 +22,7 @@ Enemy.prototype.update = function(dt) {
         //When a bug reaches the end of the canvas it reset them back to a random point before the canvas left margine
         this.x = -1 * (Math.random() * (800 - 200) + 200);
         this.speed = Math.random() * (300 - 100) + 100;
-    };
+    }
     //Collision detections, this will detect colission, present an alert message, reset player.
     //creates a new random jeweland reset the score back to 0.
     if  (player.x < this.x + 60 && player.x + 60 > this.x && player.y < this.y + 50 && 50 + player.y > this.y) {
@@ -37,7 +37,7 @@ Enemy.prototype.update = function(dt) {
             alert('GAME OVER');
         }else{
             lives = lives - 1;
-        };
+        }
     }
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
@@ -99,15 +99,18 @@ Player.prototype.update = function (){
         jewel = new Jewel(-100, -100, 'images/gem-orange.png', 20);
         //Adding Jewel value to the total of the score.
         score = score + jewel.value;
-    };
+    }
     if  (heart.x < this.x + 60 && heart.x + 60 > this.x && heart.y < this.y + 50 && 50 + heart.y > this.y) {
         //Relocating heart outside canvas after collision detected
         
         //if is heart it will add 1 live, if poison bottle it will take 1 live from player
         if (heart.name === "live"){
             lives = lives + 1;
+            heart = new Heart(-100, -100, 'images/Heart.png', 1);
         }if (heart.name === "dead"){
             resetPlayer();
+            jewel = randomJewel();
+            heart = randomHeart();
             if (lives === 0){
                 score = 0;
                 lives = 3;
@@ -116,8 +119,8 @@ Player.prototype.update = function (){
             lives = lives - 1;
             }
         }
-        heart = new Heart(-100, -100, 'images/Heart.png');
-    };
+        
+    }
 };
 
 //Handeling the events of the arrow keys.
