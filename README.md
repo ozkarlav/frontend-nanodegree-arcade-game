@@ -11,7 +11,7 @@ Clone this repository and open index.html on your browser.
 ##Items
 
 + Playe
-+ *Bugs - Bugs (Enemies) will run from left to right on the screen bricks at random speeds. Every time a bug reaches the far right of the screen it will start all over from the right of the screen at a neww speed. Getting hit by a bug will result in the reset of the game and all the ponts in your Score will be lost.
++ Bugs - Bugs (Enemies) will run from left to right on the screen bricks at random speeds. Every time a bug reaches the far right of the screen it will start all over from the right of the screen at a neww speed. Getting hit by a bug will result in the reset of the game and all the ponts in your Score will be lost.
 + Jewels - Jewels appear randomly on the screen bricks every time the game starts. They have different values depending of their colour. If player catches them, the value of the jewel will be added to the score.
 + Hearts - Hearts will give you an extra live every time you catch one.
 + Poison Bottles - If you catch one of this, a live will be taken from your live count.
@@ -32,10 +32,7 @@ Use :arrow_up:, :arrow_down:, :arrow_left: and :arrow_right: to move your player
 ##Objective #2
 Try to catch the Jewels that will appear randomly on the screen to get extra points
 
-##app.js
-Using Object-Oriented JavaScript 'app.js' initiates the Enemies, Player, Hearts, Poison Bottles and Jewels. It will load them in the screen, set locations, speed for Bugs(Enemies), handle collisions with Enemys and Jewels and other methods.
-
-**Licensing
+##Licensing
 The content of this repository is free tu use under [Creative Commons Attribution License](http://creativecommons.org/licenses/by/3.0/us/).
 
 
