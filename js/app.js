@@ -1,5 +1,6 @@
 'use strict';
 // Enemies our player must avoid
+
 var Enemy = function(y) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
@@ -26,7 +27,7 @@ Enemy.prototype.update = function(dt) {
     }
     //Collision detections, this will detect colission, present an alert message, reset player.
     //creates a new random jeweland reset the score back to 0.
-    if  (player.x < this.x + 60 && player.x + 60 > this.x && player.y < this.y + 50 && 50 + player.y > this.y) {
+    if  (checkCollisions(player.x, player.y, this.x, this.y)) {
         alert('Seems you just got bitten by a bug!');
         player.resetPlayer();
         jewel = randomJewel();
@@ -95,13 +96,13 @@ Player.prototype.render = function() {
 
 //Collision detection with Jewels
 Player.prototype.update = function (){
-    if  (jewel.x < this.x + 60 && jewel.x + 60 > this.x && jewel.y < this.y + 50 && 50 + jewel.y > this.y) {
+    if  (checkCollisions(jewel.x, jewel.y, this.x, this.y)) {
         //Relocating Jewel outside canvas after collision detected
         jewel = new Jewel(-100, -100, 'images/gem-orange.png', 20);
         //Adding Jewel value to the total of the score.
         score = score + jewel.value;
     }
-    if  (heart.x < this.x + 60 && heart.x + 60 > this.x && heart.y < this.y + 50 && 50 + heart.y > this.y) {
+    if  (checkCollisions(heart.x, heart.y, this.x, this.y)) {
         //Relocating heart outside canvas after collision detected
         
         //if is heart it will add 1 live, if poison bottle it will take 1 live from player
@@ -220,6 +221,11 @@ var heart = randomHeart();
 var lives = 3;
 var score = 0;
 
+function checkCollisions(x1, y1, x2, y2){
+        if(x1 < x2 + 60 && x1 + 60 > x2 && y2 < y1 + 50 && 50 + y2 > y1){
+            return true;
+        }
+    };
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
 document.addEventListener('keyup', function(e) {
