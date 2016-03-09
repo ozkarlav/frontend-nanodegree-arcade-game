@@ -6,7 +6,7 @@ var Enemy = function(y) {
     // we've provided one for you to get started
 
     //this.speed, creates randoom speeds for the bugs
-    this.speed = Math.random() * (300 - 100) + 100;
+    this.speed = Math.random() * (maxSpeed - minSpeed) + minSpeed;
     this.x = -400;
     this.y = y;
     // The image/sprite for our enemies, this uses
@@ -174,10 +174,10 @@ Player.prototype.resetPlayer = function () {
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 
+
 //Enemies array
 var allEnemies = [];
 //Creating 3 enemies and pushing them in to the  allEnemies array.
-
 var enemy1 = new Enemy(58);
 var enemy2 = new Enemy(142);
 var enemy3 = new Enemy(225);
@@ -186,7 +186,7 @@ allEnemies.push(enemy1, enemy2, enemy3);
 //Initial Enemies speed
 var minSpeed = 100;
 var maxSpeed = 300;
-//Resets speed when game restarts
+//Resets Bugs/Enemies speed when game restarts
 var resetSpeed = function(){
     minSpeed = 100;
     maxSpeed = 300;
