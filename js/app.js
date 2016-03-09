@@ -68,11 +68,11 @@ Jewel.prototype.render = function() {
 //*******HEARTS AND POISON BOTTLE********
 //Hearts give you lives when you catch them 
 
-var Heart = function(x, y, sprite, name) {
+var Heart = function(x, y, sprite, value) {
     this.x = x;
     this.y = y;
     this.sprite = sprite;
-    this.name = name;
+    this.value = value;
 };
 
 //Draw heart on the screen.
@@ -80,6 +80,9 @@ Heart.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
+Heart.prototype.update = function(){
+    randomItems();
+};
 //******PLAYER*******
 // Now write your own player class
 // This class requires an update(), render() and
@@ -150,7 +153,7 @@ Player.prototype.handleInput = function(direction) {
     if (this.y <= 0){
         this.resetPlayer();
         //Sets random heart after player reaches the top
-        heart = randomHeart();
+        heart = new Heart;
         //After creating new Jewels with random coordinates, 
         //this will select a random jewel from allJewels array
         jewel = randomJewel();
@@ -202,27 +205,34 @@ var jewel = randomJewel();
 
 //This will create a heart object with a random location 
 //every time this function gets called.
-
-var hearts = {
-    'x' : [0, 102, 202, 302, 404],
-    'y' : [74, 158, 242],
-    'sprite' : ['images/Heart.png', 'images/poison_bottle.png'],
-    'value' : ['live', 'dead'],
+    
+var randomArray = function(array){
+    var itemArray = array;
+    var random = itemArray[Math.floor(Math.random() * itemArray.length)];
+    return random;
 };
+var randomHeart = function(xArray, yArray, spriteArray, valueArray){
+    var x = randomArray(xArray);
+    var y = randomArray(yArray);
+    var sprite = randomArray(spriteArray);
+    var value = randomArray(valueArray);
+    var heart = new Heart(x, y, sprite, value);
+    return heart;
+};
+var xHearts = [0, 102, 202, 302, 404];
+    var yHearts = [74, 158, 242];
+    var spriteHearts = ['images/Heart.png', 'images/poison_bottle.png'];
+    var valueHearts = ['live', 'dead'];
+    randomHeart(xHearts, yHearts, spriteHearts, valueHearts);
+
+var heart = randomHeart();
+
 //random heart on canvas
 
 
-var randomItems = function(x, y, sprite, value){
-    var allitems = [];
-    var x = xArray[Math.floor(Math.random() * xArray.length)];
-    var y = yArray[Math.floor(Math.random() * yArray.length)];
-    for (var i = 0; 1 < sprite.length; i++){
-        var item = new Item(x, y, sprite[i], value[i]);
-        allItems.push(item+[i]);
-    };
-    var item = allItems[Math.floor(Math.random() * allitems.length)];
-    return item;
-};
+
+
+
 
 //score and lives variables at start of the game
 var lives = 3;
