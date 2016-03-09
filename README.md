@@ -26,6 +26,7 @@ Clone this repository and open index.html on your browser.
 
 1. Objective #1
 Use :arrow_up:, :arrow_down:, :arrow_left: and :arrow_right: to move your player to try to reach the water on top of the screen while avoiding getting hit by the Bugs.
+###Warning: Every time you reach the water the Bugs will go faster, lets see how many points you can get before you die.
 
 2. Objective #2
 Try to catch the Jewels that will appear randomly on the screen to get extra points

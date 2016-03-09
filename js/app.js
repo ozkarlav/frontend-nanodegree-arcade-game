@@ -18,12 +18,13 @@ var Enemy = function(y) {
 // Parameter: dt, a time delta between ticks
 Enemy.prototype.update = function(dt) { 
     //updates the x position of every bug. as long as they remain in the canvas. 
+    
     if (this.x < 505 ){
         this.x += this.speed * dt;
     }else{
         //When a bug reaches the end of the canvas it reset them back to a random point before the canvas left margine
         this.x = -1 * (Math.random() * (800 - 200) + 200);
-        this.speed = Math.random() * (300 - 100) + 100;
+        this.speed = Math.random() * (maxSpeed - minSpeed) + minSpeed;
     }
     //Collision detections, this will detect colission, present an alert message, reset player.
     //creates a new random jeweland reset the score back to 0.
@@ -36,6 +37,7 @@ Enemy.prototype.update = function(dt) {
         if (lives === 0){
             score = 0;
             lives = 3;
+            resetSpeed();
             alert('GAME OVER');
         }else{
             lives = lives - 1;
@@ -116,6 +118,7 @@ Player.prototype.update = function (){
             if (lives === 0){
                 score = 0;
                 lives = 3;
+                resetSpeed();
             alert('GAME OVER');
         }else{
             lives = lives - 1;
@@ -154,7 +157,9 @@ Player.prototype.handleInput = function(direction) {
         //After creating new Jewels with random coordinates, 
         //this will select a random jewel from allJewels array
         jewel = randomJewel();
-        score = score + 50;        
+        score = score + 50;
+        minSpeed = minSpeed+50;
+        maxSpeed = maxSpeed+50;        
     }
 };
 
@@ -177,6 +182,17 @@ var enemy1 = new Enemy(58);
 var enemy2 = new Enemy(142);
 var enemy3 = new Enemy(225);
 allEnemies.push(enemy1, enemy2, enemy3);
+
+//Initial Enemies speed
+var minSpeed = 100;
+var maxSpeed = 300;
+//Resets speed when game restarts
+var resetSpeed = function(){
+    minSpeed = 100;
+    maxSpeed = 300;
+    return minSpeed;
+    return maxSpeed;
+}
 
 //Player variable with starting coordinates
 var player = new Player(200, 400);
@@ -221,6 +237,7 @@ var heart = randomHeart();
 var lives = 3;
 var score = 0;
 
+//this function handles collisions for all elements in the game
 function checkCollisions(x1, y1, x2, y2){
         if(x1 < x2 + 60 && x1 + 60 > x2 && y2 < y1 + 50 && 50 + y2 > y1){
             return true;
