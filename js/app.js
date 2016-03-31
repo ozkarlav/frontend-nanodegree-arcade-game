@@ -37,6 +37,7 @@ Enemy.prototype.update = function(dt) {
         if (lives === 0){
             score = 0;
             lives = 3;
+            levels = 1;
             resetSpeed();
             alert('GAME OVER');
         }else{
@@ -139,7 +140,7 @@ Player.prototype.handleInput = function(direction) {
     //up direction, score update, boundary, and action when Player reaches  water.
     if (direction === 'up') {
             this.y -= 82;
-            score = score + 2;
+            score += 2;
     }
     //right direction with boundary
     if (direction === 'right' && this.x < 350 ){
@@ -158,6 +159,7 @@ Player.prototype.handleInput = function(direction) {
         //this will select a random jewel from allJewels array
         jewel = randomJewel();
         score = score + 50;
+        levels += 1;
         minSpeed = minSpeed+50;
         maxSpeed = maxSpeed+50;        
     }
@@ -236,6 +238,7 @@ var heart = randomHeart();
 //score and lives variables at start of the game
 var lives = 3;
 var score = 0;
+var levels = 1;
 
 //this function handles collisions for all elements in the game
 function checkCollisions(x1, y1, x2, y2){

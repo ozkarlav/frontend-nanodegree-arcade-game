@@ -153,6 +153,7 @@ var Engine = (function(global) {
                 //this will draw the score on top of the canvas.
                 //redrawing a white rectangle to hide the previous score
                 ctx.fillText("Lives: " + lives, 380, 40);
+                ctx.fillText("Level: " + levels, 190, 25);
                 
             }
         }
